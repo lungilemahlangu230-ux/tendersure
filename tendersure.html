@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TenderSure Construction — Site-Ready Audit</title>
+<style>
+/* System font stack — zero external requests, loads instantly */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-display: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+  --navy: #0d1f3c;
+  --navy-mid: #1a3360;
+  --navy-light: #1e3d6e;
+  --gold: #c9973a;
+  --gold-light: #e8b84b;
+  --gold-pale: #fdf6e8;
+  --white: #ffffff;
+  --offwhite: #f7f8fa;
+  --grey-100: #eef0f4;
+  --grey-300: #c4c9d4;
+  --grey-500: #7a8299;
+  --grey-700: #3d4560;
+  --green: #1a7a4a;
+  --green-bg: #e8f7f0;
+  --amber: #b86c00;
+  --amber-bg: #fff4e0;
+  --red: #b81c1c;
+  --red-bg: #fdf0f0;
+  --border: 1px solid #dde1ea;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--offwhite);
+  color: var(--navy);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─── */
+header {
+  background: var(--navy);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 12px rgba(13,31,60,0.25);
+}
+
+.logo-wrap { display: flex; align-items: center; gap: 0.75rem; }
+
+.logo-icon {
+  width: 34px; height: 34px;
+  background: var(--gold);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.logo-text span { color: var(--gold-light); }
+
+.logo-sub {
+  font-size: 0.6rem;
+  color: var(--grey-300);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.header-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  border: 1px solid rgba(201,151,58,0.4);
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a6e 100%);
+  padding: 3rem 1.5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(201,151,58,0.07);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(201,151,58,0.05);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+
+.hero-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* ─── MAIN ─── */
+main { padding: 1.5rem; max-width: 760px; margin: 0 auto; }
+
+/* ─── SECTION LABELS ─── */
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--grey-100);
+}
+
+/* ─── CARDS ─── */
+.card {
+  background: var(--white);
+  border: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 4px rgba(13,31,60,0.06);
+}
+
+.card-head {
+  background: var(--navy);
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-head-icon {
+  width: 28px; height: 28px;
+  background: rgba(201,151,58,0.2);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.card-head-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card-head-sub {
+  font-size: 0.7rem;
+  color: var(--grey-300);
+  font-weight: 300;
+  margin-top: 1px;
+}
+
+.card-body { padding: 1.25rem; }
+
+/* ─── UPLOAD ZONE ─── */
+.upload-main {
+  border: 2px dashed var(--grey-300);
+  border-radius: 8px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  background: var(--offwhite);
+}
+
+.upload-main:hover, .upload-main.dragover {
+  border-color: var(--gold);
+  background: var(--gold-pale);
+}
+
+.upload-main input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-main-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.upload-main-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.upload-main-sub {
+  font-size: 0.8rem;
+  color: var(--grey-500);
+  line-height: 1.5;
+}
+
+.upload-popia {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 0.68rem;
+  color: var(--grey-500);
+  background: var(--grey-100);
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+/* ─── DOC TYPE GRID ─── */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.doc-btn {
+  position: relative;
+  padding: 0.8rem 0.9rem;
+  border: var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  overflow: hidden;
+}
+
+.doc-btn:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+.doc-btn.has-file {
+  border-color: var(--navy);
+  background: var(--navy);
+}
+
+.doc-btn-name {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.doc-btn.has-file .doc-btn-name { color: var(--white); }
+
+.doc-btn-tag {
+  font-size: 0.6rem;
+  color: var(--grey-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.doc-btn.has-file .doc-btn-tag { color: rgba(255,255,255,0.5); }
+
+.doc-btn-check {
+  position: absolute;
+  top: 0.5rem; right: 0.6rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: var(--gold-light);
+}
+
+.doc-btn.has-file .doc-btn-check { opacity: 1; }
+
+.doc-btn input[type="file"] {
+  position: absolute; inset: 0;
+  opacity: 0; cursor: pointer;
+  width: 100%; height: 100%;
+}
+
+/* ─── FILE LIST ─── */
+.file-list { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.75rem; }
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--grey-100);
+  border-radius: 4px;
+  gap: 0.5rem;
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.file-item-name {
+  font-size: 0.72rem;
+  color: var(--grey-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.file-remove {
+  background: none; border: none;
+  cursor: pointer; color: var(--grey-500);
+  font-size: 1rem; line-height: 1;
+  flex-shrink: 0; padding: 0 0.2rem;
+  transition: color 0.15s;
+}
+
+.file-remove:hover { color: var(--red); }
+
+/* ─── SCAN BUTTON ─── */
+.scan-btn {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 14px rgba(201,151,58,0.35);
+}
+
+.scan-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201,151,58,0.45);
+}
+
+.scan-btn:disabled {
+  background: var(--grey-100);
+  color: var(--grey-500);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.scan-btn.loading {
+  background: var(--grey-300);
+  color: var(--grey-700);
+  pointer-events: none;
+}
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(13,31,60,0.2);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── RESULTS ─── */
+#results { display: none; animation: fadeUp 0.4s ease; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RISK SCORE TEASER ─── */
+.risk-teaser {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.risk-score-ring {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid;
+}
+
+.risk-score-ring.high { border-color: #e85555; background: rgba(232,85,85,0.1); }
+.risk-score-ring.medium { border-color: var(--gold); background: rgba(201,151,58,0.1); }
+.risk-score-ring.low { border-color: #1a7a4a; background: rgba(26,122,74,0.1); }
+
+.risk-score-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.risk-score-ring.high .risk-score-num { color: #e85555; }
+.risk-score-ring.medium .risk-score-num { color: var(--gold-light); }
+.risk-score-ring.low .risk-score-num { color: #4caf7d; }
+
+.risk-score-label {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.risk-teaser-text { flex: 1; min-width: 160px; }
+
+.risk-verdict {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.risk-verdict.high { color: #e85555; }
+.risk-verdict.medium { color: var(--gold-light); }
+.risk-verdict.low { color: #4caf7d; }
+
+.risk-summary {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ─── TRAFFIC LIGHT PANELS ─── */
+.tl-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.tl-panel {
+  border-radius: 8px;
+  overflow: hidden;
+  border: var(--border);
+  background: var(--white);
+  box-shadow: 0 1px 4px rgba(13,31,60,0.06);
+}
+
+.tl-panel-head {
+  padding: 0.8rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tl-panel-head.green { background: var(--green-bg); border-bottom: 2px solid var(--green); }
+.tl-panel-head.amber { background: var(--amber-bg); border-bottom: 2px solid var(--amber); }
+.tl-panel-head.red { background: var(--red-bg); border-bottom: 2px solid var(--red); }
+
+.tl-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.green .tl-dot { background: var(--green); }
+.amber .tl-dot { background: var(--amber); }
+.red .tl-dot { background: var(--red); }
+
+.tl-panel-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.green .tl-panel-title { color: var(--green); }
+.amber .tl-panel-title { color: var(--amber); }
+.red .tl-panel-title { color: var(--red); }
+
+.tl-status-label {
+  margin-left: auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+}
+
+.green .tl-status-label { background: var(--green); color: white; }
+.amber .tl-status-label { background: var(--amber); color: white; }
+.red .tl-status-label { background: var(--red); color: white; }
+
+.tl-panel-body { padding: 1rem 1.1rem; font-size: 0.82rem; color: var(--grey-700); line-height: 1.6; font-weight: 400; }
+
+/* ─── PAYWALL ─── */
+.paywall {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.paywall::before {
+  content: '🔒';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.04;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.paywall-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.paywall-sub {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paywall-includes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.75rem;
+  text-align: left;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paywall-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.paywall-item::before {
+  content: '✓';
+  width: 18px; height: 18px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(201,151,58,0.4);
+}
+
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201,151,58,0.5);
+}
+
+.paywall-secure {
+  margin-top: 1rem;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─── UNLOCKED REPORT ─── */
+#unlockedReport { display: none; animation: fadeUp 0.4s ease; }
+
+/* ─── CHECKLIST TABLE ─── */
+.checklist-wrap { overflow-x: auto; }
+
+.checklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.checklist-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.checklist-table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.checklist-table tr:last-child td { border-bottom: none; }
+.checklist-table tr:nth-child(even) td { background: var(--offwhite); }
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-badge.pass { background: var(--green-bg); color: var(--green); }
+.status-badge.fail { background: var(--red-bg); color: var(--red); }
+.status-badge.warn { background: var(--amber-bg); color: var(--amber); }
+
+/* ─── FIX LIST ─── */
+.fix-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.fix-item {
+  border-radius: 6px;
+  padding: 1rem;
+  border-left: 4px solid;
+}
+
+.fix-item.critical { border-color: var(--red); background: var(--red-bg); }
+.fix-item.warning { border-color: var(--amber); background: var(--amber-bg); }
+.fix-item.info { border-color: var(--navy); background: var(--grey-100); }
+
+.fix-priority {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.fix-item.critical .fix-priority { color: var(--red); }
+.fix-item.warning .fix-priority { color: var(--amber); }
+.fix-item.info .fix-priority { color: var(--navy); }
+
+.fix-action {
+  font-size: 0.82rem;
+  color: var(--navy);
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* ─── ACTION BUTTONS ─── */
+.report-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn-dl {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.85rem 1rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-dl:hover { background: var(--navy-light); }
+
+.btn-restart {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.85rem 1rem;
+  background: var(--white);
+  color: var(--navy);
+  border: var(--border);
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-restart:hover { background: var(--grey-100); }
+
+/* ─── WORKER CARDS ─── */
+.worker-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.worker-card {
+  border: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.worker-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  gap: 0.75rem;
+}
+
+.worker-card-head.pass { background: var(--green-bg); border-bottom: 2px solid var(--green); }
+.worker-card-head.fail { background: var(--red-bg); border-bottom: 2px solid var(--red); }
+.worker-card-head.warn { background: var(--amber-bg); border-bottom: 2px solid var(--amber); }
+
+.worker-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.pass .worker-name { color: var(--green); }
+.fail .worker-name { color: var(--red); }
+.warn .worker-name { color: var(--amber); }
+
+.worker-id {
+  font-size: 0.65rem;
+  color: var(--grey-500);
+  font-family: var(--font-mono);
+  margin-top: 1px;
+}
+
+.worker-card-body {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.worker-doc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.worker-doc-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.1rem; }
+.worker-doc-label { font-weight: 600; color: var(--navy); min-width: 100px; }
+.worker-doc-note { color: var(--grey-700); font-weight: 300; }
+.worker-doc-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.1rem; }
+.worker-doc-label { font-weight: 600; color: var(--navy); min-width: 100px; }
+.worker-doc-note { color: var(--grey-700); font-weight: 300; }
+
+/* ─── MODE TOGGLE ─── */
+.mode-btn {
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid rgba(201,151,58,0.4);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mode-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+/* ─── TOOL TABS ─── */
+.tool-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--grey-100);
+  margin-bottom: 1.5rem;
+}
+.tool-tab {
+  flex: 1;
+  padding: 0.75rem 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--grey-500);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.tool-tab:hover { color: var(--navy); }
+.tool-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+.tool-tab-icon { display: block; font-size: 1rem; margin-bottom: 0.2rem; }
+
+/* ─── EXPIRY TRACKER ─── */
+.expiry-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+.expiry-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.85rem 1rem; border-radius: 6px;
+  border: var(--border); background: var(--white);
+}
+.expiry-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.expiry-item.pass .expiry-dot { background: var(--green); }
+.expiry-item.warn .expiry-dot { background: var(--amber); }
+.expiry-item.fail .expiry-dot { background: var(--red); }
+.expiry-doc { font-size: 0.82rem; font-weight: 600; color: var(--navy); flex: 1; }
+.expiry-date { font-size: 0.72rem; color: var(--grey-500); margin-top: 0.15rem; font-weight: 300; }
+.expiry-badge {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.25rem 0.55rem;
+  border-radius: 100px; white-space: nowrap;
+}
+.pass .expiry-badge { background: var(--green-bg); color: var(--green); }
+.warn .expiry-badge { background: var(--amber-bg); color: var(--amber); }
+.fail .expiry-badge { background: var(--red-bg); color: var(--red); }
+.expiry-empty {
+  text-align: center; padding: 2.5rem 1rem;
+  color: var(--grey-500); font-size: 0.82rem; line-height: 1.7;
+}
+
+footer {
+  background: var(--navy);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.footer-logo span { color: var(--gold-light); }
+
+.footer-tagline {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.06em;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .hero { padding: 2rem 1.25rem 2.5rem; }
+  main { padding: 1.25rem; }
+  .doc-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo-icon">🏗️</div>
+    <div>
+      <div class="logo-text">Tender<span>Sure</span></div>
+      <div class="logo-sub">Construction · SA</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:0.4rem">
+    <button class="mode-btn active" id="modeOwn" onclick="setMode('own')">My Pack</button>
+    <button class="mode-btn" id="modeSub" onclick="setMode('sub')">Vet a Sub</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">South African Construction Compliance</div>
+  <h1>Know if you're <em>site-ready</em><br>before you bid.</h1>
+  <p class="hero-desc">Upload your compliance pack. Our forensic AI checks your CIDB grade, COIDA validity, ID matching, and tax status against the tender — in seconds.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">POPIA</span><span class="stat-label">Compliant · Zero Storage</span></div>
+    <div class="stat"><span class="stat-num">R250</span><span class="stat-label">Full Audit Report</span></div>
+    <div class="stat"><span class="stat-num">60s</span><span class="stat-label">Average Scan Time</span></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- DISCLAIMER BANNER -->
+  <div id="disclaimerBanner" style="
+    background: var(--navy);
+    border: 1.5px solid var(--gold);
+    border-radius: 8px;
+    padding: 1.25rem 1.25rem 1rem;
+    margin-bottom: 1.5rem;
+  ">
+    <div style="display:flex;align-items:flex-start;gap:0.75rem">
+      <div style="font-size:1.4rem;flex-shrink:0;margin-top:0.1rem">⚖️</div>
+      <div style="flex:1">
+        <div style="
+          font-family:'Barlow Condensed',sans-serif;
+          font-size:0.8rem;font-weight:700;
+          letter-spacing:0.12em;text-transform:uppercase;
+          color:var(--gold-light);margin-bottom:0.75rem;
+        ">Important Disclaimer — Please Read Before Uploading</div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem">
+          <div style="display:flex;gap:0.6rem;align-items:flex-start">
+            <span style="color:var(--gold);flex-shrink:0;margin-top:0.2rem">▸</span>
+            <p style="font-size:0.78rem;color:rgba(255,255,255,0.8);line-height:1.6;font-weight:300;margin:0">
+              <strong style="color:var(--white);font-weight:600">Not Legal Advice.</strong> TenderSure Construction provides AI-assisted compliance guidance only. This does not constitute legal, procurement, or professional advice. Always verify requirements with the issuing authority or a qualified professional.
+            </p>
+          </div>
+          <div style="display:flex;gap:0.6rem;align-items:flex-start">
+            <span style="color:var(--gold);flex-shrink:0;margin-top:0.2rem">▸</span>
+            <p style="font-size:0.78rem;color:rgba(255,255,255,0.8);line-height:1.6;font-weight:300;margin:0">
+              <strong style="color:var(--white);font-weight:600">No Guarantee of Award.</strong> A positive audit result does not guarantee qualification, site access, or the award of any tender or contract. All procurement decisions remain solely at the discretion of the issuing authority.
+            </p>
+          </div>
+          <div style="display:flex;gap:0.6rem;align-items:flex-start">
+            <span style="color:var(--gold);flex-shrink:0;margin-top:0.2rem">▸</span>
+            <p style="font-size:0.78rem;color:rgba(255,255,255,0.8);line-height:1.6;font-weight:300;margin:0">
+              <strong style="color:var(--white);font-weight:600">POPIA Compliant — Zero Data Storage.</strong> In compliance with the Protection of Personal Information Act (POPIA), no documents or personal information you upload are stored, retained, or shared with any third party. All files are processed in-memory only and permanently purged once your audit is complete.
+            </p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.1)">
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;flex:1;min-width:200px">
+            <input type="checkbox" id="disclaimerCheck" onchange="toggleDisclaimerAccept()" style="width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0">
+            <span style="font-size:0.75rem;color:rgba(255,255,255,0.75);font-weight:500;line-height:1.4">I have read and understand the above disclaimer</span>
+          </label>
+          <button id="disclaimerAcceptBtn" onclick="acceptDisclaimer()" disabled style="
+            padding:0.55rem 1.25rem;
+            background:var(--grey-700);
+            color:rgba(255,255,255,0.35);
+            border:none;border-radius:5px;
+            font-family:'Barlow Condensed',sans-serif;
+            font-size:0.82rem;font-weight:700;
+            letter-spacing:0.08em;text-transform:uppercase;
+            cursor:not-allowed;transition:all 0.2s;
+            white-space:nowrap;
+          ">Continue →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD SECTION (revealed after disclaimer) -->
+  <div id="uploadSection" style="display:none">
+
+  <!-- MODE BANNER -->
+  <div id="modeBanner" style="
+    background:var(--gold-pale);border:1.5px solid var(--gold);
+    border-radius:6px;padding:0.75rem 1rem;margin-bottom:1.25rem;
+    font-size:0.8rem;color:var(--navy);font-weight:500;display:none;
+    align-items:center;gap:0.6rem;
+  ">
+    <span style="font-size:1rem">🔍</span>
+    <span id="modeBannerText"></span>
+  </div>
+
+  <!-- TOOL TABS -->
+  <div class="tool-tabs">
+    <button class="tool-tab active" id="tab-audit" onclick="switchTab('audit')">
+      <span class="tool-tab-icon">🏗️</span>Site-Ready Audit
+    </button>
+    <button class="tool-tab" id="tab-expiry" onclick="switchTab('expiry')">
+      <span class="tool-tab-icon">📅</span>Expiry Tracker
+    </button>
+  </div>
+
+  <!-- TAB: AUDIT -->
+  <div id="tabAudit">
+  <div class="section-label">Step 1 — Upload Your Compliance Pack</div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-head-icon">📦</div>
+      <div>
+        <div class="card-head-title">Compliance Documents</div>
+        <div class="card-head-sub">Upload all documents at once or use the buttons below</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <label class="upload-main" id="bulkZone">
+        <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple id="bulkInput" onchange="handleBulkUpload(this)">
+        <span class="upload-main-icon">📂</span>
+        <div class="upload-main-title">Upload Full Pack</div>
+        <div class="upload-main-sub">Drag & drop or tap to select multiple files at once<br>PDF, JPG, PNG supported</div>
+        <div class="upload-popia">🔒 POPIA Compliant — Files scanned in-memory, never stored</div>
+      </label>
+
+      <div style="margin: 1rem 0; text-align:center; font-size:0.72rem; color:var(--grey-500); text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">or upload individually</div>
+
+      <div class="doc-grid" id="docGrid">
+        <label class="doc-btn" id="dbtn-cidb">
+          <div class="doc-btn-name">CIDB Certificate</div>
+          <div class="doc-btn-tag">Grading &amp; Grade</div>
+          <span class="doc-btn-check" id="cnt-cidb">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="CIDB Certificate" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-coida">
+          <div class="doc-btn-name">COIDA Good Standing</div>
+          <div class="doc-btn-tag">Letter of Good Standing</div>
+          <span class="doc-btn-check" id="cnt-coida">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="COIDA Letter" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-tax">
+          <div class="doc-btn-name">Tax Clearance PIN</div>
+          <div class="doc-btn-tag">SARS Compliance</div>
+          <span class="doc-btn-check" id="cnt-tax">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="Tax Clearance / SARS PIN" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-cipc">
+          <div class="doc-btn-name">CIPC Registration</div>
+          <div class="doc-btn-tag">COR14.3 / CoR</div>
+          <span class="doc-btn-check" id="cnt-cipc">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="CIPC Registration" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-csd">
+          <div class="doc-btn-name">CSD Summary</div>
+          <div class="doc-btn-tag">Supplier Database</div>
+          <span class="doc-btn-check" id="cnt-csd">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="CSD Summary" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-id">
+          <div class="doc-btn-name">Identity Documents</div>
+          <div class="doc-btn-tag">All workers — SA ID / Passport</div>
+          <span class="doc-btn-check" id="cnt-id">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="Identity Document" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-medical">
+          <div class="doc-btn-name">Medical Certificates</div>
+          <div class="doc-btn-tag">All workers — Annexure 3</div>
+          <span class="doc-btn-check" id="cnt-medical">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="Medical Certificate" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-insurance">
+          <div class="doc-btn-name">Public Liability</div>
+          <div class="doc-btn-tag">Insurance Policy</div>
+          <span class="doc-btn-check" id="cnt-insurance">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="Public Liability Insurance" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-bbbee">
+          <div class="doc-btn-name">BBBEE Certificate</div>
+          <div class="doc-btn-tag">Empowerment Level</div>
+          <span class="doc-btn-check" id="cnt-bbbee">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="BBBEE Certificate" onchange="handleDocUpload(this)">
+        </label>
+        <label class="doc-btn" id="dbtn-other">
+          <div class="doc-btn-name">Competency Certs</div>
+          <div class="doc-btn-tag">All workers — OHAS / Skills</div>
+          <span class="doc-btn-check" id="cnt-other">✓</span>
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple data-doc="Other" onchange="handleDocUpload(this)">
+        </label>
+      </div>
+
+      <div class="file-list" id="companyFiles"></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: TENDER / RFQ -->
+  <div class="section-label">Step 2 — Upload Tender / RFQ Document</div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-head-icon">📋</div>
+      <div>
+        <div class="card-head-title">Tender / RFQ Document</div>
+        <div class="card-head-sub">The document issued by the procuring entity</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <label class="upload-main" id="tenderZone" style="padding:1.75rem 1.5rem">
+        <input type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" id="tenderInput" onchange="handleTenderUpload(this)">
+        <span class="upload-main-icon" style="font-size:2rem">📄</span>
+        <div class="upload-main-title" style="font-size:1rem">Upload Tender Document</div>
+        <div class="upload-main-sub">PDF, DOC, DOCX, JPG, PNG</div>
+      </label>
+      <div class="file-list" id="tenderFiles"></div>
+    </div>
+  </div>
+
+  <!-- SCAN BUTTON -->
+  <button class="scan-btn" id="scanBtn" onclick="runScan()" disabled>
+    🔍 Run Site-Ready Audit
+  </button>
+
+  </div><!-- /tabAudit -->
+
+  </div><!-- /uploadSection -->
+
+  <!-- TAB: EXPIRY TRACKER -->
+  <div id="tabExpiry" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-icon">📅</div>
+        <div>
+          <div class="card-head-title">Document Expiry Tracker</div>
+          <div class="card-head-sub">Auto-populated from your last scan</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="expiryContent">
+          <div class="expiry-empty">
+            🔍 Run a Site-Ready Audit first.<br>
+            Expiry dates will be automatically extracted<br>and tracked here.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" style="margin-top:1.5rem">
+
+    <!-- RISK SCORE (FREE) -->
+    <div class="section-label">Risk Assessment</div>
+    <div class="risk-teaser" id="riskTeaser"></div>
+
+    <!-- TRAFFIC LIGHTS (FREE — summarised) -->
+    <div class="section-label">Traffic Light Overview</div>
+    <div class="tl-grid" id="trafficLights"></div>
+
+    <!-- PAYWALL -->
+    <div class="paywall" id="paywall">
+      <div class="paywall-title">🔒 Unlock Full Audit Report</div>
+      <div class="paywall-sub">Your risk score is ready. Pay R250 to see the full Fix-List, requirements breakdown, and downloadable PDF audit.</div>
+      <div class="paywall-includes">
+        <div class="paywall-item">Detailed Fix-List with exact actions</div>
+        <div class="paywall-item">Full requirements checklist table</div>
+        <div class="paywall-item">CIDB grade vs tender value analysis</div>
+        <div class="paywall-item">Downloadable PDF Audit Report</div>
+      </div>
+      <button class="pay-btn" onclick="initiatePayment()">
+        💳 Pay R250 · Unlock Report
+      </button>
+      <div class="paywall-secure">Secured by Paystack · SSL Encrypted</div>
+    </div>
+
+    <!-- UNLOCKED REPORT -->
+    <div id="unlockedReport">
+      <div class="section-label">Full Audit Report</div>
+
+      <!-- WORKER BREAKDOWN -->
+      <div class="card" style="margin-bottom:1.25rem" id="workerCard">
+        <div class="card-head">
+          <div class="card-head-icon">👷</div>
+          <div>
+            <div class="card-head-title">Per-Worker Safety File Audit</div>
+            <div class="card-head-sub">ID matched against Medical &amp; Competency Certificates</div>
+          </div>
+        </div>
+        <div class="card-body" id="workerBody"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:1.25rem">
+        <div class="card-head">
+          <div class="card-head-icon">🔍</div>
+          <div>
+            <div class="card-head-title">TenderSure Checklist</div>
+            <div class="card-head-sub">Complete requirements breakdown</div>
+          </div>
+        </div>
+        <div class="card-body" style="padding:0">
+          <div class="checklist-wrap">
+            <table class="checklist-table">
+              <thead>
+                <tr>
+                  <th>Requirement</th>
+                  <th>Status</th>
+                  <th>Action Required</th>
+                </tr>
+              </thead>
+              <tbody id="checklistBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">The Fix-List</div>
+      <div class="card" style="margin-bottom:1.25rem">
+        <div class="card-head" style="background:var(--red)">
+          <div class="card-head-icon" style="background:rgba(255,255,255,0.15)">⚡</div>
+          <div>
+            <div class="card-head-title">Actionable Fix-List</div>
+            <div class="card-head-sub" style="color:rgba(255,255,255,0.7)">Prioritised actions to achieve site access</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="fix-list" id="fixList"></div>
+        </div>
+      </div>
+
+      <div class="report-actions">
+        <button class="btn-dl" onclick="downloadReport()">⬇ Download PDF Audit</button>
+        <button class="btn-restart" onclick="restartScan()">↺ New Audit</button>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Tender<span>Sure</span> Construction</div>
+  <div class="footer-tagline">TenderSure SA: Protecting Construction Access &amp; Liquidity · POPIA Compliant</div>
+</footer>
+
+<script>
+// ─── DISCLAIMER ───
+function toggleDisclaimerAccept() {
+  const checked = document.getElementById('disclaimerCheck').checked;
+  const btn = document.getElementById('disclaimerAcceptBtn');
+  btn.disabled = !checked;
+  btn.style.background = checked ? 'linear-gradient(135deg, var(--gold), var(--gold-light))' : 'var(--grey-700)';
+  btn.style.color = checked ? 'var(--navy)' : 'rgba(255,255,255,0.35)';
+  btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+
+function acceptDisclaimer() {
+  document.getElementById('disclaimerBanner').style.display = 'none';
+  const upload = document.getElementById('uploadSection');
+  upload.style.display = 'block';
+  upload.style.animation = 'fadeUp 0.35s ease';
+  upload.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── MODE TOGGLE ───
+let currentMode = 'own'; // 'own' = auditing yourself, 'sub' = vetting a subcontractor
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('modeOwn').classList.toggle('active', mode === 'own');
+  document.getElementById('modeSub').classList.toggle('active', mode === 'sub');
+  const banner = document.getElementById('modeBanner');
+  const text = document.getElementById('modeBannerText');
+  if (mode === 'sub') {
+    text.textContent = 'Subcontractor Vetting Mode — Upload your subcontractor\'s documents below. The audit will assess their compliance on your behalf.';
+    banner.style.display = 'flex';
+    document.getElementById('scanBtn').textContent = '🔍 Vet This Subcontractor';
+  } else {
+    banner.style.display = 'none';
+    document.getElementById('scanBtn').innerHTML = '🔍 Run Site-Ready Audit';
+  }
+}
+
+// ─── TAB SWITCHING ───
+function switchTab(tab) {
+  document.getElementById('tabAudit').style.display = tab === 'audit' ? 'block' : 'none';
+  document.getElementById('tabExpiry').style.display = tab === 'expiry' ? 'block' : 'none';
+  document.getElementById('tab-audit').classList.toggle('active', tab === 'audit');
+  document.getElementById('tab-expiry').classList.toggle('active', tab === 'expiry');
+}
+
+// ─── EXPIRY TRACKER ───
+function renderExpiryTracker(expiryItems) {
+  const el = document.getElementById('expiryContent');
+  if (!expiryItems || !expiryItems.length) {
+    el.innerHTML = '<div class="expiry-empty">No expiry dates were detected in your documents.<br>Make sure to upload COIDA, Tax Clearance, Insurance, and worker certificates.</div>';
+    return;
+  }
+
+  const company = expiryItems.filter(e => e.category !== 'worker');
+  const workers = expiryItems.filter(e => e.category === 'worker');
+
+  const renderItem = item => `
+    <div class="expiry-item ${item.status}">
+      <div class="expiry-dot"></div>
+      <div style="flex:1">
+        <div class="expiry-doc">${item.document}${item.workerName ? ' <span style="font-weight:300;color:var(--grey-500)">— ' + item.workerName + '</span>' : ''}</div>
+        <div class="expiry-date">${item.expiryDate ? 'Expires: ' + item.expiryDate : 'Expiry date not detected'}</div>
+      </div>
+      <span class="expiry-badge">${item.status === 'pass' ? '✓ Valid' : item.status === 'warn' ? '⚠ Soon' : '✗ Expired'}</span>
+    </div>`;
+
+  let html = '';
+
+  if (company.length) {
+    html += `<div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-500);margin-bottom:0.4rem;padding:0 0.1rem">🏢 Company Documents</div>`;
+    html += `<div class="expiry-grid" style="margin-bottom:1.1rem">${company.map(renderItem).join('')}</div>`;
+  }
+
+  if (workers.length) {
+    html += `<div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-500);margin-bottom:0.4rem;padding:0 0.1rem">👷 Worker Documents</div>`;
+    html += `<div class="expiry-grid">${workers.map(renderItem).join('')}</div>`;
+  }
+
+  el.innerHTML = html;
+}
+const S = {
+  docs: [],       // { name, docType, base64, mimeType }
+  tender: null,   // { name, base64, mimeType }
+  result: null,   // parsed JSON from AI
+  paid: false
+};
+
+// ─── FILE HELPERS ───
+async function toBase64(file) {
+  // Compress images before encoding — reduces data usage significantly
+  if (file.type.startsWith('image/') && file.size > 500000) {
+    return await compressImage(file);
+  }
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(',')[1]);
+    r.onerror = () => rej(new Error('Read failed'));
+    r.readAsDataURL(file);
+  });
+}
+
+async function compressImage(file) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const canvas = document.createElement('canvas');
+      const MAX = 1600; // max dimension in px
+      let { width: w, height: h } = img;
+      if (w > MAX || h > MAX) {
+        if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+        else { w = Math.round(w * MAX / h); h = MAX; }
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const b64 = canvas.toDataURL('image/jpeg', 0.82).split(',')[1];
+      res(b64);
+    };
+    img.onerror = () => rej(new Error('Image load failed'));
+    img.src = url;
+  });
+}
+
+function mime(file) {
+  // Compressed images are always returned as jpeg
+  if (file.type.startsWith('image/') && file.size > 500000) return 'image/jpeg';
+  return file.type || 'application/octet-stream';
+}
+
+// ─── UPLOADS ───
+async function handleBulkUpload(input) {
+  for (const file of Array.from(input.files)) {
+    const b64 = await toBase64(file);
+    S.docs.push({ name: file.name, docType: 'General Document', base64: b64, mimeType: mime(file) });
+  }
+  renderDocs(); updateBtn();
+}
+
+async function handleDocUpload(input) {
+  const dt = input.dataset.doc;
+  for (const file of Array.from(input.files)) {
+    const b64 = await toBase64(file);
+    S.docs.push({ name: file.name, docType: dt, base64: b64, mimeType: mime(file) });
+  }
+  const idMap = {
+    'CIDB Certificate': 'dbtn-cidb', 'COIDA Letter': 'dbtn-coida',
+    'Tax Clearance / SARS PIN': 'dbtn-tax', 'CIPC Registration': 'dbtn-cipc',
+    'CSD Summary': 'dbtn-csd', 'Identity Document': 'dbtn-id',
+    'Medical Certificate': 'dbtn-medical', 'Public Liability Insurance': 'dbtn-insurance',
+    'BBBEE Certificate': 'dbtn-bbbee', 'Other': 'dbtn-other'
+  };
+  if (idMap[dt]) document.getElementById(idMap[dt]).classList.add('has-file');
+  renderDocs(); updateBtn();
+}
+
+async function handleTenderUpload(input) {
+  const file = input.files[0]; if (!file) return;
+  const b64 = await toBase64(file);
+  S.tender = { name: file.name, base64: b64, mimeType: mime(file) };
+  const z = document.getElementById('tenderZone');
+  z.style.borderColor = 'var(--gold)'; z.style.background = 'var(--gold-pale)';
+  renderTender(); updateBtn();
+}
+
+function renderDocs() {
+  // Group by docType
+  const groups = {};
+  S.docs.forEach((d, i) => {
+    if (!groups[d.docType]) groups[d.docType] = [];
+    groups[d.docType].push({ ...d, idx: i });
+  });
+
+  // Update count badges on buttons
+  const idMap = {
+    'CIDB Certificate': 'cnt-cidb', 'COIDA Letter': 'cnt-coida',
+    'Tax Clearance / SARS PIN': 'cnt-tax', 'CIPC Registration': 'cnt-cipc',
+    'CSD Summary': 'cnt-csd', 'Identity Document': 'cnt-id',
+    'Medical Certificate': 'cnt-medical', 'Public Liability Insurance': 'cnt-insurance',
+    'BBBEE Certificate': 'cnt-bbbee', 'Other': 'cnt-other'
+  };
+  Object.entries(idMap).forEach(([type, cntId]) => {
+    const el = document.getElementById(cntId);
+    if (!el) return;
+    const count = (groups[type] || []).length;
+    el.textContent = count > 0 ? count : '✓';
+  });
+
+  if (!S.docs.length) {
+    document.getElementById('companyFiles').innerHTML = '';
+    return;
+  }
+
+  let html = '';
+  Object.entries(groups).forEach(([type, files]) => {
+    html += `<div style="margin-bottom:0.6rem">
+      <div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--grey-500);margin-bottom:0.3rem;padding:0 0.25rem">${type} <span style="color:var(--gold);margin-left:0.3rem">${files.length} file${files.length > 1 ? 's' : ''}</span></div>`;
+    files.forEach(f => {
+      html += `<div class="file-item">
+        <span class="file-item-name">📄 ${f.name}</span>
+        <button class="file-remove" onclick="removeDoc(${f.idx})">×</button>
+      </div>`;
+    });
+    html += `</div>`;
+  });
+  document.getElementById('companyFiles').innerHTML = html;
+}
+
+function renderTender() {
+  document.getElementById('tenderFiles').innerHTML = S.tender ? `
+    <div class="file-item">
+      <span class="file-item-name">📋 ${S.tender.name}</span>
+      <button class="file-remove" onclick="removeTender()">×</button>
+    </div>` : '';
+}
+
+function removeDoc(i) {
+  S.docs.splice(i, 1);
+  const docBtnMap = {
+    'CIDB Certificate': 'dbtn-cidb', 'COIDA Letter': 'dbtn-coida',
+    'Tax Clearance / SARS PIN': 'dbtn-tax', 'CIPC Registration': 'dbtn-cipc',
+    'CSD Summary': 'dbtn-csd', 'Identity Document': 'dbtn-id',
+    'Medical Certificate': 'dbtn-medical', 'Public Liability Insurance': 'dbtn-insurance',
+    'BBBEE Certificate': 'dbtn-bbbee', 'Other': 'dbtn-other'
+  };
+  Object.values(docBtnMap).forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('has-file'); });
+  S.docs.forEach(d => { const id = docBtnMap[d.docType]; if (id) document.getElementById(id).classList.add('has-file'); });
+  renderDocs(); updateBtn();
+}
+
+function removeTender() {
+  S.tender = null;
+  document.getElementById('tenderInput').value = '';
+  const z = document.getElementById('tenderZone');
+  z.style.borderColor = ''; z.style.background = '';
+  renderTender(); updateBtn();
+}
+
+function updateBtn() {
+  const btn = document.getElementById('scanBtn');
+  btn.disabled = !(S.docs.length > 0 && S.tender);
+}
+
+// ─── DRAG & DROP ───
+const bulkZone = document.getElementById('bulkZone');
+bulkZone.addEventListener('dragover', e => { e.preventDefault(); bulkZone.classList.add('dragover'); });
+bulkZone.addEventListener('dragleave', () => bulkZone.classList.remove('dragover'));
+bulkZone.addEventListener('drop', async e => {
+  e.preventDefault(); bulkZone.classList.remove('dragover');
+  for (const file of Array.from(e.dataTransfer.files)) {
+    const b64 = await toBase64(file);
+    S.docs.push({ name: file.name, docType: 'General Document', base64: b64, mimeType: mime(file) });
+  }
+  renderDocs(); updateBtn();
+});
+
+// ─── SCAN ───
+async function runScan() {
+  const btn = document.getElementById('scanBtn');
+  btn.classList.add('loading');
+  btn.innerHTML = '<div class="spinner"></div> Scanning Documents…';
+
+  const resultsEl = document.getElementById('results');
+  resultsEl.style.display = 'block';
+  document.getElementById('riskTeaser').innerHTML = '<div style="color:rgba(255,255,255,0.5);font-size:0.85rem;padding:0.5rem">Analysing your compliance pack…</div>';
+  document.getElementById('trafficLights').innerHTML = '';
+  document.getElementById('paywall').style.display = 'block';
+  document.getElementById('unlockedReport').style.display = 'none';
+  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  try {
+    const parts = [];
+    for (const d of S.docs) {
+      if (d.mimeType === 'application/pdf') {
+        parts.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: d.base64 }, title: `${d.docType}: ${d.name}` });
+      } else if (d.mimeType.startsWith('image/')) {
+        parts.push({ type: 'image', source: { type: 'base64', media_type: d.mimeType, data: d.base64 } });
+      }
+    }
+    if (S.tender.mimeType === 'application/pdf') {
+      parts.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: S.tender.base64 }, title: `TENDER/RFQ DOCUMENT: ${S.tender.name}` });
+    } else if (S.tender.mimeType.startsWith('image/')) {
+      parts.push({ type: 'image', source: { type: 'base64', media_type: S.tender.mimeType, data: S.tender.base64 } });
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+
+    parts.push({ type: 'text', text: `You are a Forensic Document Auditor specializing in South African Construction Compliance (CIDB, COIDA, OHS Act, POPIA).
+
+${currentMode === 'sub' ? 'CONTEXT: This is a SUBCONTRACTOR VETTING audit. The documents uploaded belong to a subcontractor being assessed by a main contractor. Frame all findings and recommendations accordingly.' : 'CONTEXT: This is a SELF-AUDIT. The contractor is checking their own compliance pack before submitting a bid or attending site.'}
+
+Today's date: ${today}
+
+IMPORTANT: Multiple workers' documents have been uploaded. Each Identity Document, Medical Certificate, and Competency Certificate may belong to a different worker. Your primary job is to GROUP documents by worker (matched via ID number) and audit each worker individually.
+
+EXTRACTION ENGINE — Apply with 100% accuracy. Flag any unreadable/missing data as "INVALID/NOT DETECTED."
+
+1. ENTITY VERIFICATION (CIPC & CSD):
+   - Extract Enterprise Name and Registration Number from CIPC and CSD documents.
+   - Cross-check: does the name on CIPC COR14.3 EXACTLY match the CSD Summary? Flag mismatches like "Pty Ltd" vs "Ltd".
+
+2. CIDB GRADING LOGIC:
+   - Extract Grading Designation (e.g., 5GB, 4CE) and Grade upper financial limit.
+   - Extract Tender Value from the RFQ/Tender document.
+   - If Tender Value > Grade Upper Limit → status = "fail", critical knockout.
+
+3. PER-WORKER SAFETY FILE AUDIT (ID MATCHING):
+   - For EACH Identity Document uploaded, extract the worker's full name and ID number.
+   - Search ALL uploaded Medical Certificates (Annexure 3) for that exact ID number → flag if missing.
+   - Search ALL uploaded Competency/Other Certs for that exact ID number → flag if missing.
+   - Result: one worker entry per ID found, showing what they have and what is missing.
+   - If a Medical or Competency cert has an ID that matches NO uploaded Identity Document → flag as "UNMATCHED DOCUMENT."
+
+4. CHRONOLOGICAL VALIDITY (SITE-GATE CHECK):
+   - Extract expiry dates from COMPANY documents: COIDA Letter of Good Standing, SARS Tax Clearance PIN, Public Liability Insurance, BBBEE Certificate, CIDB Certificate.
+   - Extract expiry dates from WORKER documents: Medical Fitness Certificates (Annexure 3), Operator Licences, Competency Cards, any other worker-level certificates with a validity period.
+   - For each worker document with an expiry, record the worker's name alongside the document.
+   - Compare each against today (${today}).
+   - If expired → fail. If expiry within 30 days → warn "AMBER: ACCESS AT RISK."
+   - If expiry within 12 days → add specific urgency message in the fixList.
+   - Set category: "company" for company-level docs, "worker" for worker-level docs.
+
+5. BBBEE: Extract level and check against tender BBBEE requirements if stated.
+
+Respond ONLY with valid JSON — no preamble, no markdown, no backticks:
+{
+  "tenderName": "Tender reference or description",
+  "entityName": "Company name extracted",
+  "riskScore": 0-100,
+  "riskLevel": "HIGH" | "MEDIUM" | "LOW",
+  "riskHeadline": "Short punchy verdict (max 8 words)",
+  "riskSummary": "2-3 sentence plain summary for contractor",
+  "siteAccessStatus": "GREEN" | "AMBER" | "RED",
+  "siteAccessDetail": "1-2 sentence detail on COIDA/ID match status",
+  "tenderEligibilityStatus": "GREEN" | "AMBER" | "RED",
+  "tenderEligibilityDetail": "1-2 sentence detail on CIDB grade vs tender value",
+  "overallComplianceStatus": "GREEN" | "AMBER" | "RED",
+  "overallComplianceDetail": "1-2 sentence overall compliance summary",
+  "workers": [
+    {
+      "name": "Worker full name or 'Unknown'",
+      "idNumber": "ID number or 'NOT DETECTED'",
+      "medicalStatus": "pass" | "fail" | "warn",
+      "medicalNote": "e.g. Medical cert found and ID matched / Medical cert missing",
+      "competencyStatus": "pass" | "fail" | "warn",
+      "competencyNote": "e.g. Competency cert found / No competency cert uploaded for this worker",
+      "overallStatus": "pass" | "fail" | "warn"
+    }
+  ],
+  "checklist": [
+    { "requirement": "string", "status": "pass|fail|warn", "action": "Specific action or 'No action required'" }
+  ],
+  "fixList": [
+    { "priority": "CRITICAL" | "WARNING" | "INFO", "action": "Specific actionable instruction with portal/department link if applicable" }
+  ],
+  "expiryItems": [
+    { "document": "Document name e.g. COIDA Letter of Good Standing", "workerName": "Worker full name or null if company doc", "expiryDate": "DD MMM YYYY or null if not found", "status": "pass|warn|fail", "category": "company|worker" }
+  ]
+}` });
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 3000,
+        system: 'You are a forensic South African construction compliance auditor. Respond only with valid JSON as instructed.',
+        messages: [{ role: 'user', content: parts }]
+      })
+    });
+
+    const data = await resp.json();
+    const raw = data.content.map(b => b.text || '').join('');
+
+    let result;
+    try {
+      result = JSON.parse(raw.replace(/```json|```/g, '').trim());
+    } catch {
+      document.getElementById('riskTeaser').innerHTML = `<div style="color:#e85555;font-size:0.85rem">Error parsing audit result. Please try again.</div>`;
+      btn.classList.remove('loading'); btn.innerHTML = currentMode === 'sub' ? '🔍 Vet This Subcontractor' : '🔍 Run Site-Ready Audit'; btn.disabled = false;
+      return;
+    }
+
+    S.result = result;
+    renderFreeResults(result);
+    renderExpiryTracker(result.expiryItems || []);
+
+  } catch (err) {
+    document.getElementById('riskTeaser').innerHTML = `<div style="color:#e85555;font-size:0.85rem">Error: ${err.message}</div>`;
+  }
+
+  btn.classList.remove('loading');
+  btn.innerHTML = currentMode === 'sub' ? '🔍 Vet This Subcontractor' : '🔍 Run Site-Ready Audit';
+  btn.disabled = false;
+}
+
+// ─── FREE RESULTS ───
+function renderFreeResults(r) {
+  // Risk score
+  const rClass = r.riskLevel === 'HIGH' ? 'high' : r.riskLevel === 'MEDIUM' ? 'medium' : 'low';
+  document.getElementById('riskTeaser').innerHTML = `
+    <div class="risk-score-ring ${rClass}">
+      <div class="risk-score-num">${r.riskScore}</div>
+      <div class="risk-score-label">Risk</div>
+    </div>
+    <div class="risk-teaser-text">
+      <div class="risk-verdict ${rClass}">${r.riskLevel} RISK DETECTED — ${r.riskHeadline}</div>
+      <div class="risk-summary">${r.riskSummary}</div>
+      ${r.entityName ? `<div style="margin-top:0.5rem;font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.04em">${r.entityName}${r.tenderName ? ' · ' + r.tenderName : ''}</div>` : ''}
+    </div>`;
+
+  // Traffic lights
+  const panels = [
+    { key: 'siteAccess', label: 'Site-Access Status', icon: '🚧', status: r.siteAccessStatus, detail: r.siteAccessDetail, sub: 'COIDA Validity & ID Matching' },
+    { key: 'tenderElig', label: 'Tender Eligibility', icon: '🏗️', status: r.tenderEligibilityStatus, detail: r.tenderEligibilityDetail, sub: 'CIDB Grade Guard' },
+    { key: 'compliance', label: 'Overall Compliance', icon: '📋', status: r.overallComplianceStatus, detail: r.overallComplianceDetail, sub: 'All Documents' }
+  ];
+
+  const tlColor = s => s === 'GREEN' ? 'green' : s === 'AMBER' ? 'amber' : 'red';
+  const tlLabel = s => s === 'GREEN' ? 'Clear' : s === 'AMBER' ? 'At Risk' : 'Critical';
+
+  document.getElementById('trafficLights').innerHTML = panels.map(p => `
+    <div class="tl-panel">
+      <div class="tl-panel-head ${tlColor(p.status)}">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-panel-title">${p.icon} ${p.label}</div>
+          <div style="font-size:0.65rem;color:var(--grey-500);font-weight:500;margin-top:1px">${p.sub}</div>
+        </div>
+        <span class="tl-status-label">${tlLabel(p.status)}</span>
+      </div>
+      <div class="tl-panel-body">${p.detail || 'See full report for details.'}</div>
+    </div>`).join('');
+}
+
+// ─── PAYMENT ───
+function loadPaystack(callback) {
+  if (window.PaystackPop) { callback(); return; }
+  const script = document.createElement('script');
+  script.src = 'https://js.paystack.co/v1/inline.js';
+  script.onload = callback;
+  script.onerror = () => alert('Could not load payment system. Please check your connection and try again.');
+  document.head.appendChild(script);
+}
+
+function initiatePayment() {
+  loadPaystack(() => {
+  // Replace with your actual Paystack public key
+  const PAYSTACK_KEY = 'pk_test_REPLACE_WITH_YOUR_PAYSTACK_PUBLIC_KEY';
+
+  const email = prompt('Enter your email address to receive your audit report:');
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  const handler = PaystackPop.setup({
+    key: PAYSTACK_KEY,
+    email: email,
+    amount: 25000, // R250 in kobo/cents
+    currency: 'ZAR',
+    ref: 'TS_' + Date.now(),
+    metadata: { custom_fields: [{ display_name: 'Product', value: 'TenderSure Audit Report' }] },
+    callback: function(response) {
+      // Payment successful
+      S.paid = true;
+      document.getElementById('paywall').style.display = 'none';
+      unlockReport();
+    },
+    onClose: function() {
+      // User closed payment modal
+    }
+  });
+  handler.openIframe();
+  }); // end loadPaystack
+}
+
+// ─── UNLOCK REPORT ───
+function unlockReport() {
+  const r = S.result;
+  if (!r) return;
+
+  // Worker breakdown
+  const workerBody = document.getElementById('workerBody');
+  if (r.workers && r.workers.length) {
+    const docIcon = s => s === 'pass' ? '✅' : s === 'fail' ? '❌' : '⚠️';
+    workerBody.innerHTML = `<div class="worker-grid">` + r.workers.map(w => `
+      <div class="worker-card">
+        <div class="worker-card-head ${w.overallStatus}">
+          <div>
+            <div class="worker-name">👷 ${w.name}</div>
+            <div class="worker-id">ID: ${w.idNumber}</div>
+          </div>
+          <span class="status-badge ${w.overallStatus}">${w.overallStatus === 'pass' ? '✓ Clear' : w.overallStatus === 'fail' ? '✗ Issue' : '! Review'}</span>
+        </div>
+        <div class="worker-card-body">
+          <div class="worker-doc-row">
+            <span class="worker-doc-icon">${docIcon(w.medicalStatus)}</span>
+            <span class="worker-doc-label">Medical Cert:</span>
+            <span class="worker-doc-note">${w.medicalNote}</span>
+          </div>
+          <div class="worker-doc-row">
+            <span class="worker-doc-icon">${docIcon(w.competencyStatus)}</span>
+            <span class="worker-doc-label">Competency:</span>
+            <span class="worker-doc-note">${w.competencyNote}</span>
+          </div>
+        </div>
+      </div>`).join('') + `</div>`;
+    document.getElementById('workerCard').style.display = 'block';
+  } else {
+    document.getElementById('workerCard').style.display = 'none';
+  }
+
+  // Checklist table
+  const statusBadge = s => `<span class="status-badge ${s}">${s === 'pass' ? '✓ Met' : s === 'fail' ? '✗ Not Met' : '! Review'}</span>`;
+  document.getElementById('checklistBody').innerHTML = (r.checklist || []).map(c => `
+    <tr>
+      <td style="font-weight:500">${c.requirement}</td>
+      <td>${statusBadge(c.status)}</td>
+      <td style="font-size:0.75rem;color:var(--grey-700)">${c.action}</td>
+    </tr>`).join('');
+
+  // Fix list
+  const priorityClass = p => p === 'CRITICAL' ? 'critical' : p === 'WARNING' ? 'warning' : 'info';
+  document.getElementById('fixList').innerHTML = (r.fixList || []).map(f => `
+    <div class="fix-item ${priorityClass(f.priority)}">
+      <div class="fix-priority">${f.priority === 'CRITICAL' ? '🔴' : f.priority === 'WARNING' ? '🟡' : 'ℹ️'} ${f.priority}</div>
+      <div class="fix-action">ACTION: ${f.action}</div>
+    </div>`).join('');
+
+  document.getElementById('unlockedReport').style.display = 'block';
+  document.getElementById('unlockedReport').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── DOWNLOAD REPORT ───
+function downloadReport() {
+  if (!S.result) return;
+  const r = S.result;
+  const date = new Date().toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  const workerRows = (r.workers || []).map(w =>
+    `  ${w.overallStatus === 'pass' ? '✓' : w.overallStatus === 'fail' ? '✗' : '!'} ${w.name} (ID: ${w.idNumber})\n     Medical: ${w.medicalNote}\n     Competency: ${w.competencyNote}`
+  ).join('\n\n');
+
+  const expiryRows = (r.expiryItems || []).map(e =>
+    `  ${e.status === 'pass' ? '✓' : e.status === 'warn' ? '!' : '✗'} ${e.document.padEnd(40)} Expires: ${e.expiryDate || 'Not detected'} [${e.status.toUpperCase()}]`
+  ).join('\n');
+
+  const checklistRows = (r.checklist || []).map(c =>
+    `  ${c.status === 'pass' ? '✓' : c.status === 'fail' ? '✗' : '!'} ${c.requirement.padEnd(40)} [${c.status.toUpperCase()}]\n     Action: ${c.action}`
+  ).join('\n\n');
+
+  const fixRows = (r.fixList || []).map((f, i) =>
+    `${i + 1}. [${f.priority}] ACTION: ${f.action}`
+  ).join('\n\n');
+
+  const report = `
+╔══════════════════════════════════════════════════════════════╗
+║         TENDERSURE CONSTRUCTION — SITE-READY AUDIT          ║
+║         TenderSure SA: Protecting Construction Access        ║
+║                      & Liquidity                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Generated: ${date}
+Entity:    ${r.entityName || 'Not detected'}
+Tender:    ${r.tenderName || 'Not specified'}
+
+RISK ASSESSMENT
+───────────────────────────────────────────────
+Risk Level:  ${r.riskLevel} (Score: ${r.riskScore}/100)
+Verdict:     ${r.riskHeadline}
+Summary:     ${r.riskSummary}
+
+TRAFFIC LIGHT DASHBOARD
+───────────────────────────────────────────────
+🚧 Site-Access Status:     ${r.siteAccessStatus}
+   ${r.siteAccessDetail}
+
+🏗️  Tender Eligibility:    ${r.tenderEligibilityStatus}
+   ${r.tenderEligibilityDetail}
+
+📋 Overall Compliance:     ${r.overallComplianceStatus}
+   ${r.overallComplianceDetail}
+
+PER-WORKER SAFETY FILE AUDIT
+───────────────────────────────────────────────
+${workerRows || 'No individual worker documents uploaded.'}
+
+DOCUMENT EXPIRY TRACKER
+───────────────────────────────────────────────
+${expiryRows || 'No expiry dates detected.'}
+
+TENDERSURE CHECKLIST
+───────────────────────────────────────────────
+Requirement                              Status    Action Required
+${checklistRows}
+
+THE FIX-LIST
+───────────────────────────────────────────────
+${fixRows}
+
+───────────────────────────────────────────────
+DISCLAIMER: This report is AI-assisted and for guidance only.
+Verify all requirements with the issuing authority.
+TenderSure SA does not constitute legal or procurement advice.
+This report was generated in compliance with POPIA —
+no documents were stored or retained.
+───────────────────────────────────────────────
+TenderSure SA: Protecting Construction Access & Liquidity
+www.tendersure.co.za
+`.trim();
+
+  const blob = new Blob([report], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `TenderSure_Audit_${(r.entityName || 'Report').replace(/\s+/g, '_')}_${date.replace(/ /g, '_')}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ─── RESTART ───
+function restartScan() {
+  S.docs = []; S.tender = null; S.result = null; S.paid = false;
+  document.getElementById('companyFiles').innerHTML = '';
+  document.getElementById('tenderFiles').innerHTML = '';
+  document.getElementById('results').style.display = 'none';
+  document.querySelectorAll('.doc-btn').forEach(b => b.classList.remove('has-file'));
+  document.querySelectorAll('input[type=file]').forEach(i => i.value = '');
+  document.querySelectorAll('[id^="cnt-"]').forEach(el => el.textContent = '✓');
+  const z = document.getElementById('tenderZone');
+  z.style.borderColor = ''; z.style.background = '';
+  // Reset expiry tracker
+  document.getElementById('expiryContent').innerHTML = '<div class="expiry-empty">🔍 Run a Site-Ready Audit first.<br>Expiry dates will be automatically extracted<br>and tracked here.</div>';
+  // Switch back to audit tab
+  switchTab('audit');
+  updateBtn();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
